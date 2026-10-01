@@ -1,0 +1,91 @@
+:root {
+  color-scheme: light;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #1d2520;
+  background: #e9eee8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at top right, rgba(214, 224, 201, 0.9), transparent 38%),
+    linear-gradient(135deg, #f7f4ec 0%, #dce8df 100%);
+}
+
+.page-shell {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 2rem;
+}
+
+.hero {
+  width: min(100%, 680px);
+  padding: clamp(2rem, 7vw, 5rem);
+  border: 1px solid rgba(29, 37, 32, 0.16);
+  background: rgba(255, 255, 255, 0.64);
+  box-shadow: 0 24px 70px rgba(46, 66, 51, 0.14);
+}
+
+.eyebrow {
+  margin: 0 0 1rem;
+  color: #58705a;
+  font-family: Arial, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+h1 {
+  max-width: 11ch;
+  margin: 0;
+  font-size: clamp(3rem, 9vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.intro {
+  max-width: 48ch;
+  margin: 2rem 0;
+  color: #4d5a50;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+button {
+  padding: 0.85rem 1.2rem;
+  border: 0;
+  border-radius: 999px;
+  color: #f7f4ec;
+  background: #31533a;
+  cursor: pointer;
+  font: 700 0.9rem Arial, sans-serif;
+  transition: transform 160ms ease, background 160ms ease;
+}
+
+button:hover,
+button:focus-visible {
+  background: #203b28;
+  transform: translateY(-2px);
+}
+
+button:focus-visible {
+  outline: 3px solid #a1bd8f;
+  outline-offset: 4px;
+}
+
+.message {
+  min-height: 1.5em;
+  margin: 1.25rem 0 0;
+  color: #31533a;
+  font-family: Arial, sans-serif;
+  font-weight: 700;
+}
