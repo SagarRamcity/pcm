@@ -4,11 +4,7 @@
   color: #1d2520;
   background: #e9eee8;
 }
-
-* {
-  box-sizing: border-box;
-}
-
+* { box-sizing: border-box; }
 body {
   min-width: 320px;
   min-height: 100vh;
@@ -17,75 +13,45 @@ body {
     radial-gradient(circle at top right, rgba(214, 224, 201, 0.9), transparent 38%),
     linear-gradient(135deg, #f7f4ec 0%, #dce8df 100%);
 }
-
-.page-shell {
-  display: grid;
-  min-height: 100vh;
-  place-items: center;
-  padding: 2rem;
-}
-
+.page-shell { display: grid; min-height: 100vh; place-items: center; padding: 2rem 1rem; }
 .hero {
-  width: min(100%, 680px);
-  padding: clamp(2rem, 7vw, 5rem);
+  width: min(100%, 720px);
+  padding: clamp(1.5rem, 6vw, 4rem);
   border: 1px solid rgba(29, 37, 32, 0.16);
   background: rgba(255, 255, 255, 0.64);
   box-shadow: 0 24px 70px rgba(46, 66, 51, 0.14);
 }
-
-.eyebrow {
-  margin: 0 0 1rem;
-  color: #58705a;
-  font-family: Arial, sans-serif;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-h1 {
-  max-width: 11ch;
-  margin: 0;
-  font-size: clamp(3rem, 9vw, 6rem);
-  line-height: 0.95;
-  letter-spacing: -0.04em;
-}
-
-.intro {
-  max-width: 48ch;
-  margin: 2rem 0;
-  color: #4d5a50;
-  font-family: Arial, sans-serif;
-  font-size: 1rem;
-  line-height: 1.7;
-}
-
+.eyebrow { margin: 0 0 1rem; color: #58705a; font-family: Arial, sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+h1 { margin: 0; font-size: clamp(2.6rem, 9vw, 5rem); line-height: 0.95; letter-spacing: -0.04em; }
+h2 { margin: 1.25rem 0; font-size: clamp(1.3rem, 4vw, 1.8rem); line-height: 1.25; }
+.intro { max-width: 52ch; margin: 1.5rem 0; color: #4d5a50; font-family: Arial, sans-serif; line-height: 1.7; }
 button {
-  padding: 0.85rem 1.2rem;
-  border: 0;
-  border-radius: 999px;
-  color: #f7f4ec;
-  background: #31533a;
-  cursor: pointer;
-  font: 700 0.9rem Arial, sans-serif;
-  transition: transform 160ms ease, background 160ms ease;
+  padding: 0.85rem 1.2rem; border: 0; border-radius: 999px; color: #f7f4ec; background: #31533a;
+  cursor: pointer; font: 700 0.9rem Arial, sans-serif; transition: transform 160ms ease, background 160ms ease;
 }
-
-button:hover,
-button:focus-visible {
-  background: #203b28;
-  transform: translateY(-2px);
-}
-
-button:focus-visible {
-  outline: 3px solid #a1bd8f;
-  outline-offset: 4px;
-}
-
-.message {
-  min-height: 1.5em;
-  margin: 1.25rem 0 0;
-  color: #31533a;
-  font-family: Arial, sans-serif;
-  font-weight: 700;
-}
+button:hover:not(:disabled), button:focus-visible { background: #203b28; transform: translateY(-2px); }
+button:focus-visible { outline: 3px solid #a1bd8f; outline-offset: 4px; }
+button:disabled { cursor: not-allowed; }
+.ghost { color: #31533a; background: transparent; border: 1px solid #31533a; margin-left: 0.5rem; }
+.ghost:hover:not(:disabled) { color: #f7f4ec; }
+.level-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 0.6rem; margin-bottom: 1.5rem; }
+.level { border-radius: 8px; }
+.level:disabled { color: #8a948c; background: #dfe5de; }
+.level.done { background: #58705a; }
+.quiz-top { display: flex; justify-content: space-between; gap: 1rem; margin-top: 1.5rem; font: 700 0.85rem Arial, sans-serif; color: #58705a; }
+.bar { height: 8px; margin-top: 0.75rem; border-radius: 99px; background: #d3ddd2; overflow: hidden; }
+#timer-bar { height: 100%; width: 100%; background: #31533a; transition: background 300ms; }
+#timer-bar.warm { background: #c9902a; }
+#timer-bar.hot { background: #b3361f; }
+.options { display: grid; gap: 0.6rem; }
+.option { padding: 0.95rem 1.1rem; border-radius: 8px; color: #1d2520; background: #fff; border: 1px solid rgba(29, 37, 32, 0.2); text-align: left; }
+.option:hover:not(:disabled) { background: #eef3ea; }
+.option.correct { color: #fff; background: #31533a; border-color: #31533a; }
+.option.wrong { color: #fff; background: #b3361f; border-color: #b3361f; }
+.message { min-height: 1.5em; margin: 1.25rem 0 0; color: #31533a; font-family: Arial, sans-serif; font-weight: 700; }
+.error { color: #b3361f; font-family: Arial, sans-serif; font-weight: 700; }
+.result { text-align: left; }
+.result.win h2 { font-size: clamp(2rem, 7vw, 3.2rem); animation: pop 700ms cubic-bezier(.2, 1.6, .4, 1); }
+@keyframes pop { from { transform: scale(0.4); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+#confetti { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 10; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
